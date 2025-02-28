@@ -47,6 +47,12 @@
             <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
             <version>${dynamic-datasource.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-setting</artifactId>
+            <version>5.8.5</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
