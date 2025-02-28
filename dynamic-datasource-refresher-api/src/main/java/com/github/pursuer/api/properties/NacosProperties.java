@@ -10,17 +10,17 @@ import lombok.Data;
  * @date 2025/2/28
  */
 @Data
-public class ConsulProperties {
+public class NacosProperties {
     /**
-     * Consul地址
+     * Nacos地址
      */
     private String serverAddr;
     /**
-     * Consul端口
+     * Nacos端口
      */
     private int port;
     /**
-     * Consul访问令牌
+     * Nacos命名空间
      */
-    private String accessToken;
+    private String namespace;
 }

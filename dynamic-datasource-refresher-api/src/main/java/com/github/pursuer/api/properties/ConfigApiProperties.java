@@ -22,6 +22,10 @@ public class ConfigApiProperties {
      * Consul配置
      */
     private ConsulProperties consul;
+    /**
+     * Nacos配置
+     */
+    private NacosProperties nacos;
 
     enum ConfigType {
         NACOS,

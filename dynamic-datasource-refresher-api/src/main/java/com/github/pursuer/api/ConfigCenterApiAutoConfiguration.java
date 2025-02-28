@@ -1,7 +1,10 @@
 package com.github.pursuer.api;
 
+import com.alibaba.cloud.nacos.NacosConfigAutoConfiguration;
+import com.alibaba.nacos.api.exception.NacosException;
 import com.github.pursuer.api.core.ConfigCenterApi;
 import com.github.pursuer.api.core.ConsulConfigCenterApi;
+import com.github.pursuer.api.core.NacosConfigCenterApi;
 import com.github.pursuer.api.properties.ConfigApiProperties;
 import com.github.pursuer.api.properties.ConsulProperties;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +34,12 @@ public class ConfigCenterApiAutoConfiguration {
     @ConditionalOnProperty(prefix = "refresher.config", name = "type", havingValue = "CONSUL")
     public ConfigCenterApi consulConfigCenterApi() {
         return new ConsulConfigCenterApi(properties.getConsul());
+    }
+
+    @Bean
+    @ConditionalOnClass(NacosConfigAutoConfiguration.class)
+    @ConditionalOnProperty(prefix = "refresher.config", name = "type", havingValue = "NACOS")
+    public ConfigCenterApi nacosConfigCenterApi() throws NacosException {
+        return new NacosConfigCenterApi(properties.getNacos());
     }
 }

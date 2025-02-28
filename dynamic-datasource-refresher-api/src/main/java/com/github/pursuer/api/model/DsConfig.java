@@ -14,9 +14,9 @@ import java.util.List;
 @Data
 public class DsConfig {
     /**
-     * 应用在配置中心的配置ID类表，如Consul: config/{serviceName},rdc/data
+     * 配置ID列表
      */
-    private List<String> dataIds;
+    private List<Config> configs;
     /**
      * 数据源标识ID
      */
@@ -37,4 +37,16 @@ public class DsConfig {
      * 驱动类名
      */
     private String driverClassName;
+
+    @Data
+    public static class Config {
+        /**
+         * 应用在配置中心的配置ID，如Consul: config/{serviceName},rdc/data
+         */
+        private String dataId;
+        /**
+         * 配置组
+         */
+        private String group;
+    }
 }
