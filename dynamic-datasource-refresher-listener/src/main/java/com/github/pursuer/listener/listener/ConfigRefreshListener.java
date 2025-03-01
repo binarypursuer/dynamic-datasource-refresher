@@ -6,7 +6,6 @@ import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DataSourcePrope
 import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration;
 import com.github.pursuer.listener.event.DatasourceRefreshCompletedEvent;
 import com.github.pursuer.listener.properties.RefreshableDynamicDataSourceProperties;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -20,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 import javax.sql.DataSource;
+import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -33,7 +33,6 @@ import java.util.Set;
  */
 @Order(0)
 @Configuration
-@RequiredArgsConstructor
 @ConditionalOnClass(DynamicDataSourceAutoConfiguration.class)
 @EnableConfigurationProperties(RefreshableDynamicDataSourceProperties.class)
 @AutoConfigureAfter({DataSourceAutoConfiguration.class, DynamicDataSourceAutoConfiguration.class})
@@ -43,6 +42,12 @@ public class ConfigRefreshListener implements ApplicationListener<RefreshScopeRe
     private final DataSource dataSource;
     private final DefaultDataSourceCreator creator;
     private ApplicationContext context;
+
+    public ConfigRefreshListener(RefreshableDynamicDataSourceProperties properties, DataSource dataSource, DefaultDataSourceCreator creator) {
+        this.properties = properties;
+        this.dataSource = dataSource;
+        this.creator = creator;
+    }
 
     @Override
     public void onApplicationEvent(RefreshScopeRefreshedEvent event) {

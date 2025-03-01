@@ -5,8 +5,6 @@ import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.Response;
 import com.ecwid.consul.v1.kv.model.GetValue;
 import com.github.pursuer.api.properties.ConsulProperties;
-import org.springframework.stereotype.Component;
-
 import static com.github.pursuer.api.model.DsConfig.Config;
 
 /**
@@ -16,7 +14,6 @@ import static com.github.pursuer.api.model.DsConfig.Config;
  * @version 1.0
  * @date 2025/2/28
  */
-@Component
 public class ConsulConfigCenterApi extends ConfigCenterApi {
 
     private final ConsulProperties properties;

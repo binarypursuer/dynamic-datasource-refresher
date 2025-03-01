@@ -1,6 +1,9 @@
 package com.github.pursuer.api.model;
 
+import com.github.pursuer.api.enums.ConfigType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -39,6 +42,8 @@ public class DsConfig {
     private String driverClassName;
 
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class Config {
         /**
          * 应用在配置中心的配置ID，如Consul: config/{serviceName},rdc/data
@@ -48,5 +53,14 @@ public class DsConfig {
          * 配置组
          */
         private String group;
+        /**
+         * 文件类型 支持 properties、yaml
+         */
+        private ConfigType configType = ConfigType.YAML;
+
+        public Config(String dataId, String group) {
+            this.dataId = dataId;
+            this.group = group;
+        }
     }
 }

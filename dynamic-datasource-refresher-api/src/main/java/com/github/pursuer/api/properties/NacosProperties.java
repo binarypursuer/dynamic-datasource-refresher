@@ -16,11 +16,15 @@ public class NacosProperties {
      */
     private String serverAddr;
     /**
-     * Nacos端口
-     */
-    private int port;
-    /**
-     * Nacos命名空间
+     * Nacos命名空间  public默认不填
      */
     private String namespace;
+    /**
+     * Nacos用户名
+     */
+    private String username;
+    /**
+     * Nacos密码
+     */
+    private String password;
 }

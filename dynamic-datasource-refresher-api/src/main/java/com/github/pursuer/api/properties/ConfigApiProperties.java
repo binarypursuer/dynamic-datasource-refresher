@@ -2,6 +2,7 @@ package com.github.pursuer.api.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @date 2025/2/28
  */
 @Data
-@ConfigurationProperties(prefix = "refresher.config")
+@ConfigurationProperties(prefix = "refresher")
 public class ConfigApiProperties {
     /**
      * 配置中心类型
@@ -21,13 +22,15 @@ public class ConfigApiProperties {
     /**
      * Consul配置
      */
+    @NestedConfigurationProperty
     private ConsulProperties consul;
     /**
      * Nacos配置
      */
+    @NestedConfigurationProperty
     private NacosProperties nacos;
 
-    enum ConfigType {
+    public enum ConfigType {
         NACOS,
         CONSUL
     }
