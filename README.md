@@ -31,9 +31,6 @@ refresher:
     server-addr: 127.0.0.1:8848
     username: nacos
     password: nacos
-  consul:
-    server-addr: ${spring.cloud.consul.host}
-    port: 8500
 ```
 3.配置中心配置默认数据源，以yaml为例
 ```yaml
