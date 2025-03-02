@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * Consul配置
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/2/28
  */

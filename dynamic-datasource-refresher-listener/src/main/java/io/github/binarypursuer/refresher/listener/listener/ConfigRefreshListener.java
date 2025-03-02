@@ -24,7 +24,7 @@ import java.util.Set;
 /**
  * 配置刷新监听器
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/2/28
  */

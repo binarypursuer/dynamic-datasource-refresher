@@ -100,7 +100,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>io.github.binarypursuer.refresher.example.io.github.binarypursuer.refresher.example.consul.ConsulApplication</mainClass>
+                    <mainClass>io.github.binarypursuer.refresher.example.com.github.binarypursuer.refresher.example.consul.ConsulApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

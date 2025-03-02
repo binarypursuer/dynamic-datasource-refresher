@@ -10,7 +10,7 @@ import io.github.binarypursuer.refresher.api.model.DsConfig;
 /**
  * Consul配置API
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/2/28
  */

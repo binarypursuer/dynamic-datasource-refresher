@@ -11,7 +11,7 @@ import java.util.Properties;
 /**
  * properties配置文件处理
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/3/1
  */

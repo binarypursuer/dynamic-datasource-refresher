@@ -13,7 +13,7 @@ import static io.github.binarypursuer.refresher.listener.properties.RefreshableD
 /**
  * 可刷新动态数据源配置
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/2/28
  */

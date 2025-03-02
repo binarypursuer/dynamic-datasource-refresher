@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 数据源推送
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/2/28
  */
@@ -21,7 +21,7 @@ public abstract class ConfigCenterApi {
      *
      * @param dsConfig 数据源配置
      * @return int     成功数量
-     * @author Pursuer
+     * @author binarypursuer
      * @date 2025/3/2
      * @since 1.0
      **/
@@ -53,7 +53,7 @@ public abstract class ConfigCenterApi {
      *
      * @param serviceConfig 配置文件描述配置
      * @return java.lang.String
-     * @author Pursuer
+     * @author binarypursuer
      * @date 2025/2/28
      * @since 1.0
      **/
@@ -65,7 +65,7 @@ public abstract class ConfigCenterApi {
      * @param serviceConfig 配置文件描述配置
      * @param newConfig     新配置
      * @return boolean
-     * @author Pursuer
+     * @author binarypursuer
      * @date 2025/2/28
      * @since 1.0
      **/

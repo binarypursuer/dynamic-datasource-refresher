@@ -5,7 +5,7 @@ import io.github.binarypursuer.refresher.api.model.DsConfig;
 /**
  * 配置格式处理器
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/3/1
  */
@@ -16,7 +16,7 @@ public interface ConfigFormatHandler {
      * @param content  配置内容
      * @param dsConfig 数据库配置
      * @return java.lang.String
-     * @author Pursuer
+     * @author binarypursuer
      * @date 2025/3/1
      * @since 1.0
      **/

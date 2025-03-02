@@ -1,11 +1,10 @@
-package io.github.binarypursuer.refresher.example.consul.controller;
+package com.github.binarypursuer.refresher.example.nacos.controller;
 
 import io.github.binarypursuer.refresher.api.core.ConfigCenterApi;
 import io.github.binarypursuer.refresher.api.enums.ConfigType;
 import io.github.binarypursuer.refresher.api.model.DsConfig;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 /**
  * 数据源API
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/3/2
  */
@@ -29,7 +28,8 @@ public class DatasourceController {
         DsConfig dsConfig = new DsConfig();
         List<DsConfig.ServiceConfig> configs = new ArrayList<>();
         DsConfig.ServiceConfig config = new DsConfig.ServiceConfig();
-        config.setDataId("config/consul-example/data");
+        config.setDataId("nacos-example");
+        config.setGroup("DEFAULT_GROUP");
         config.setType(ConfigType.YAML);
         configs.add(config);
         dsConfig.setServiceConfigs(configs);

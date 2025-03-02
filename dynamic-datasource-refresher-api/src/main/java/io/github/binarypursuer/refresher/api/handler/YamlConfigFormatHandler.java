@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Yaml配置文件处理器
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/3/1
  */

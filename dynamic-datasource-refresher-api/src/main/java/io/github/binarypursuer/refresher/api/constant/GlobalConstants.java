@@ -3,7 +3,7 @@ package io.github.binarypursuer.refresher.api.constant;
 /**
  * 全局常量
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/3/1
  */

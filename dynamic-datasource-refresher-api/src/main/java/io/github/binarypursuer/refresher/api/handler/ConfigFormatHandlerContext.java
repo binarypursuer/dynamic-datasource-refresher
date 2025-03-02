@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 配置文件格式处理器缓存
  *
- * @author Pursuer
+ * @author binarypursuer
  * @version 1.0
  * @date 2025/3/2
  */
@@ -29,7 +29,7 @@ public class ConfigFormatHandlerContext {
      *
      * @param type    类型
      * @param handler 处理器
-     * @author Pursuer
+     * @author binarypursuer
      * @date 2025/3/2
      * @since 1.0
      **/
@@ -42,7 +42,7 @@ public class ConfigFormatHandlerContext {
      *
      * @param configType 配置文件类型
      * @return io.github.binarypursuer.api.handler.ConfigFormatHandler
-     * @author Pursuer
+     * @author binarypursuer
      * @date 2025/3/2
      * @since 1.0
      **/
