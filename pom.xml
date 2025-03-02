@@ -11,6 +11,7 @@
     <modules>
         <module>dynamic-datasource-refresher-api</module>
         <module>dynamic-datasource-refresher-listener</module>
+        <module>dynamic-datasource-refresher-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -93,9 +94,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
         </plugins>

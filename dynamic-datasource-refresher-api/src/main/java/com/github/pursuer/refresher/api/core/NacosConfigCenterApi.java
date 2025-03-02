@@ -1,0 +1,44 @@
+package com.github.pursuer.refresher.api.core;
+
+import cn.hutool.core.lang.Opt;
+import com.alibaba.nacos.api.NacosFactory;
+import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.exception.NacosException;
+import com.github.pursuer.refresher.api.model.DsConfig;
+import com.github.pursuer.refresher.api.properties.NacosProperties;
+import com.github.pursuer.refresher.api.constant.GlobalConstants;
+
+import java.util.Properties;
+
+/**
+ * Nacos配置API
+ *
+ * @author Pursuer
+ * @version 1.0
+ * @date 2025/2/28
+ */
+public class NacosConfigCenterApi extends ConfigCenterApi {
+
+    private final ConfigService configService;
+
+    public NacosConfigCenterApi(NacosProperties properties) throws NacosException {
+        Properties prop = new Properties();
+        prop.put(GlobalConstants.SERVER_ADDR, properties.getServerAddr());
+        Opt.ofBlankAble(properties.getNamespace()).ifPresent(v -> {
+            prop.put(GlobalConstants.NAMESPACE, v);
+        });
+        prop.put(GlobalConstants.USERNAME, properties.getUsername());
+        prop.put(GlobalConstants.PASSWORD, properties.getPassword());
+        this.configService = NacosFactory.createConfigService(prop);
+    }
+
+    @Override
+    protected String read(DsConfig.ServiceConfig serviceConfig) throws NacosException {
+        return this.configService.getConfig(serviceConfig.getDataId(), serviceConfig.getGroup(), 5000);
+    }
+
+    @Override
+    protected boolean write(DsConfig.ServiceConfig serviceConfig, String newConfig) throws NacosException {
+        return configService.publishConfig(serviceConfig.getDataId(), serviceConfig.getGroup(), newConfig, serviceConfig.getType().getType());
+    }
+}

@@ -9,9 +9,25 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>dynamic-datasource-refresher-api</artifactId>
+    <artifactId>dynamic-datasource-refresher-spring-boot-starter</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.pursuer</groupId>
+            <artifactId>dynamic-datasource-refresher-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pursuer</groupId>
+            <artifactId>dynamic-datasource-refresher-listener</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
