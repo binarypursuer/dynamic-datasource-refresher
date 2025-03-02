@@ -1,3 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.github.pursuer.refresher.autoconfigure.ConfigCenterApiAutoConfiguration,\
-  com.github.pursuer.refresher.listener.listener.ConfigRefreshListener
+  io.github.binarypursuer.refresher.autoconfigure.ConfigCenterApiAutoConfiguration,\
+  io.github.binarypursuer.refresher.listener.listener.ConfigRefreshListener

@@ -1,4 +1,4 @@
-package com.github.pursuer.refresher.example.nacos;
+package io.github.binarypursuer.refresher.example.nacos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

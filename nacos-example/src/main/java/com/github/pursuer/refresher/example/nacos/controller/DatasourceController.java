@@ -1,8 +1,8 @@
-package com.github.pursuer.refresher.example.nacos.controller;
+package io.github.binarypursuer.refresher.example.nacos.controller;
 
-import com.github.pursuer.refresher.api.core.ConfigCenterApi;
-import com.github.pursuer.refresher.api.enums.ConfigType;
-import com.github.pursuer.refresher.api.model.DsConfig;
+import io.github.binarypursuer.refresher.api.core.ConfigCenterApi;
+import io.github.binarypursuer.refresher.api.enums.ConfigType;
+import io.github.binarypursuer.refresher.api.model.DsConfig;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;

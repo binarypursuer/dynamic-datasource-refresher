@@ -1,4 +1,4 @@
-package com.github.pursuer.refresher.example.consul;
+package io.github.binarypursuer.refresher.example.consul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

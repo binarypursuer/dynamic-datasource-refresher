@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>nacos-example</artifactId>
-    <groupId>com.github.pursuer</groupId>
+    <groupId>io.github.binarypursuer</groupId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>nacos-example</name>
@@ -43,7 +43,7 @@
         </dependency>
         <!--动态刷新依赖-->
         <dependency>
-            <groupId>com.github.pursuer</groupId>
+            <groupId>io.github.binarypursuer</groupId>
             <artifactId>dynamic-datasource-refresher-spring-boot-starter</artifactId>
             <version>1.0.0</version>
         </dependency>
@@ -100,7 +100,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.github.pursuer.refresher.example.com.github.pursuer.refresher.example.consul.ConsulApplication</mainClass>
+                    <mainClass>io.github.binarypursuer.refresher.example.io.github.binarypursuer.refresher.example.consul.ConsulApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

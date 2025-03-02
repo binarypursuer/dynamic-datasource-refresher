@@ -18,7 +18,7 @@
 1.引入依赖
 ```xml
 <dependency>
-    <groupId>com.github.pursuer</groupId>
+    <groupId>io.github.binarypursuer</groupId>
     <artifactId>dynamic-datasource-refresher-spring-boot-starter</artifactId>
     <version>1.0.0</version>
 </dendency>
@@ -47,11 +47,11 @@ spring:
 ```
 4.注入ConfigCenterApi推送数据源
 ```java
-package com.github.pursuer.refresher.example.nacos.controller;
+package io.github.binarypursuer.refresher.example.nacos.controller;
 
-import com.github.pursuer.refresher.api.core.ConfigCenterApi;
-import com.github.pursuer.refresher.api.enums.ConfigType;
-import com.github.pursuer.refresher.api.model.DsConfig;
+import core.io.github.binarypursuer.refresher.api.ConfigCenterApi;
+import enums.io.github.binarypursuer.refresher.api.ConfigType;
+import model.io.github.binarypursuer.refresher.api.DsConfig;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
