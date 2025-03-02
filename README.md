@@ -3,7 +3,7 @@
 ## 项目结构
 |                       模块名                        |      说明       |
 |:------------------------------------------------:|:-------------:|
-|         dynamic-datasource-refresher-api         | 数据中心推送数据源API  |
+|         dynamic-datasource-refresher-api         | 配置中心推送数据源API  |
 |      dynamic-datasource-refresher-listener       | 应用程序监听感知数据源变化 |
 | dynamic-datasource-refresher-spring-boot-starter |  API和监听器自动配置  | 
 |                  nacos-example                   |   Nacos使用示例   |
