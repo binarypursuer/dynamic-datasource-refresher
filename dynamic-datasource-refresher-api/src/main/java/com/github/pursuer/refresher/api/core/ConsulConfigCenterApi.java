@@ -21,7 +21,7 @@ public class ConsulConfigCenterApi extends ConfigCenterApi {
 
     public ConsulConfigCenterApi(ConsulProperties properties) {
         this.properties = properties;
-        this.client = new ConsulClient(properties.getServerAddr(), properties.getPort());
+        this.client = new ConsulClient(properties.getHost(), properties.getPort());
     }
 
     @Override

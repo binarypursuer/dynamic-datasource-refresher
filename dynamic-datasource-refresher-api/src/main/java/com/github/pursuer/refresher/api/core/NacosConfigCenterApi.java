@@ -7,6 +7,7 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.github.pursuer.refresher.api.model.DsConfig;
 import com.github.pursuer.refresher.api.properties.NacosProperties;
 import com.github.pursuer.refresher.api.constant.GlobalConstants;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Properties;
 
@@ -17,6 +18,7 @@ import java.util.Properties;
  * @version 1.0
  * @date 2025/2/28
  */
+@Slf4j
 public class NacosConfigCenterApi extends ConfigCenterApi {
 
     private final ConfigService configService;
@@ -33,12 +35,22 @@ public class NacosConfigCenterApi extends ConfigCenterApi {
     }
 
     @Override
-    protected String read(DsConfig.ServiceConfig serviceConfig) throws NacosException {
-        return this.configService.getConfig(serviceConfig.getDataId(), serviceConfig.getGroup(), 5000);
+    protected String read(DsConfig.ServiceConfig serviceConfig) {
+        try {
+            return configService.getConfig(serviceConfig.getDataId(), serviceConfig.getGroup(), 5000);
+        } catch (NacosException e) {
+            log.error("读取Nacos配置失败，原因：", e);
+            return null;
+        }
     }
 
     @Override
-    protected boolean write(DsConfig.ServiceConfig serviceConfig, String newConfig) throws NacosException {
-        return configService.publishConfig(serviceConfig.getDataId(), serviceConfig.getGroup(), newConfig, serviceConfig.getType().getType());
+    protected boolean write(DsConfig.ServiceConfig serviceConfig, String newConfig) {
+        try {
+            return configService.publishConfig(serviceConfig.getDataId(), serviceConfig.getGroup(), newConfig, serviceConfig.getType().getType());
+        } catch (NacosException e) {
+            log.error("修改Nacos配置失败，原因：", e);
+            return false;
+        }
     }
 }

@@ -28,22 +28,25 @@ public abstract class ConfigCenterApi {
      * @date 2025/3/2
      * @since 1.0
      **/
-    public int publish(DsConfig dsConfig) throws NacosException {
+    public int publish(DsConfig dsConfig) {
         //结果集
         AtomicInteger resultCount = new AtomicInteger(0);
         //遍历服务列表
         for (DsConfig.ServiceConfig serviceConfig : dsConfig.getServiceConfigs()) {
-            //获取配置
-            String configStr = read(serviceConfig);
-            log.info("获取到的kv为：{}", configStr);
-            //获取新的配置
-            String newConfig = ConfigFormatHandlerContext.getHandler(serviceConfig.getType()).process(configStr, dsConfig);
-            log.info("新的配置为：{}", newConfig);
-            //写入
-            boolean result = write(serviceConfig, newConfig);
-            Opt.of(result).ifPresent(t -> resultCount.incrementAndGet());
-            //日志记录结果
-            log.info("修改结果为：{}", result);
+            //获取配置并处理
+            Opt.ofNullable(read(serviceConfig)).ifPresentOrElse(configStr -> {
+                log.info("{}获取到的kv为：{}", serviceConfig.getDataId(), configStr);
+                //获取新的配置
+                String newConfig = ConfigFormatHandlerContext.getHandler(serviceConfig.getType()).process(configStr, dsConfig);
+                log.info("{}新的配置为：{}", serviceConfig.getDataId(), newConfig);
+                //写入
+                boolean result = write(serviceConfig, newConfig);
+                Opt.of(result).ifPresent(t -> resultCount.incrementAndGet());
+                //日志记录结果
+                log.info("{}修改结果为：{}", serviceConfig.getDataId(), result);
+            }, () -> {
+                log.error("未获取到配置：{}", serviceConfig.getDataId());
+            });
         }
         return resultCount.get();
     }
@@ -57,7 +60,7 @@ public abstract class ConfigCenterApi {
      * @date 2025/2/28
      * @since 1.0
      **/
-    protected abstract String read(DsConfig.ServiceConfig serviceConfig) throws NacosException;
+    protected abstract String read(DsConfig.ServiceConfig serviceConfig);
 
     /**
      * 写入配置
@@ -69,5 +72,5 @@ public abstract class ConfigCenterApi {
      * @date 2025/2/28
      * @since 1.0
      **/
-    protected abstract boolean write(DsConfig.ServiceConfig serviceConfig, String newConfig) throws NacosException;
+    protected abstract boolean write(DsConfig.ServiceConfig serviceConfig, String newConfig);
 }

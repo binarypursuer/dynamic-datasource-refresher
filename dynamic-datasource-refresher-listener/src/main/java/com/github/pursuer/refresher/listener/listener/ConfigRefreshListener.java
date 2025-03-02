@@ -6,6 +6,7 @@ import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DataSourcePrope
 import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration;
 import com.github.pursuer.refresher.listener.event.DatasourceRefreshCompletedEvent;
 import com.github.pursuer.refresher.listener.properties.RefreshableDynamicDataSourceProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -31,6 +32,7 @@ import java.util.Set;
  * @date 2025/2/28
  */
 @Order(0)
+@Slf4j
 @Configuration
 @ConditionalOnClass(DynamicDataSourceAutoConfiguration.class)
 @EnableConfigurationProperties(RefreshableDynamicDataSourceProperties.class)
@@ -65,6 +67,7 @@ public class ConfigRefreshListener implements ApplicationListener<RefreshScopeRe
         //添加新的数据源
         datasource.forEach((key, value) -> {
             if (!dataSourceKeys.contains(key)) {
+                log.info("添加新的数据源: {}", key);
                 newDatasource.put(key, value);
                 ds.addDataSource(key, creator.createDataSource(value));
             }

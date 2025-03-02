@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: consul-example
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        health-check-tls-skip-verify: true
+      config:
+        enabled: true
+        format: yaml
+        watch:
+          enabled: true
+        prefixes: config
+        data-key: data
+        default-context: consul-example
+# 刷新配置
+refresher:
+  type: consul
+  consul:
+    host: 127.0.0.1
+    port: 8500

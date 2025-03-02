@@ -12,9 +12,9 @@ import lombok.Data;
 @Data
 public class ConsulProperties {
     /**
-     * Consul地址
+     * Consul主机
      */
-    private String serverAddr;
+    private String host;
     /**
      * Consul端口
      */
