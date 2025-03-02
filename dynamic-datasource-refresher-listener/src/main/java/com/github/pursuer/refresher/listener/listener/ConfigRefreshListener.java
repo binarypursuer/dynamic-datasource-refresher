@@ -3,14 +3,12 @@ package com.github.pursuer.refresher.listener.listener;
 import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
 import com.baomidou.dynamic.datasource.creator.DefaultDataSourceCreator;
 import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DataSourceProperty;
-import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration;
 import com.github.pursuer.refresher.listener.event.DatasourceRefreshCompletedEvent;
 import com.github.pursuer.refresher.listener.properties.RefreshableDynamicDataSourceProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.context.scope.refresh.RefreshScopeRefreshedEvent;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +16,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-
 import javax.sql.DataSource;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -34,9 +31,9 @@ import java.util.Set;
 @Order(0)
 @Slf4j
 @Configuration
-@ConditionalOnClass(DynamicDataSourceAutoConfiguration.class)
+@ConditionalOnClass(name = "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration")
 @EnableConfigurationProperties(RefreshableDynamicDataSourceProperties.class)
-@AutoConfigureAfter({DataSourceAutoConfiguration.class, DynamicDataSourceAutoConfiguration.class})
+@AutoConfigureAfter(name = {"org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration", "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration"})
 public class ConfigRefreshListener implements ApplicationListener<RefreshScopeRefreshedEvent>, ApplicationContextAware {
 
     private final RefreshableDynamicDataSourceProperties properties;
